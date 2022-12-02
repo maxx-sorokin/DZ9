@@ -4,19 +4,19 @@
 Console.Write("Введите N: ");
 bool isParsedN = int.TryParse(Console.ReadLine(), out int n);
 
-if (!isParsedN)
+if (!isParsedN || n <= 0)
 {
     Console.WriteLine("Ошибка!");
     return;
 }
 PrintNumbers(n);
 
-void PrintNumbers(int n, int i = 1)
+void PrintNumbers(int n)
 {
-    if (i > n)
+    if (n < 1)
     {
         return;
     }
-    Console.Write($"{i} ");
-    PrintNumbers(n, i + 1);
+    Console.Write($"{n} ");
+    PrintNumbers(--n);
 }
